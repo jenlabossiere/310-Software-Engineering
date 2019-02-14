@@ -3,10 +3,7 @@
 <head>
     <meta charset="ISO-8859-1">
     <title>Therapist Jen</title>
-    <script
-            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="static/appStyle.css">
 </head>
 <body>
@@ -25,17 +22,16 @@
         $("button").click(sendMessage);
     });
 
-
     function sendMessage() {
         var typedText = $("textarea").val();
         if (typedText != "") {
             window.messageHistory.addUserMessage(typedText);
-            $.post("http://127.0.0.1:8080", typedText, function(data){
+            $.post("http://localhost:8080", typedText, function(data){
                 addBotMessage(data)
             });
             $("textarea").val("");
         }
-    }
+    };
 </script>
 </body>
 </html>
